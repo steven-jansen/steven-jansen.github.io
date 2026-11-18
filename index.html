@@ -281,10 +281,10 @@ const PROJECTS = [
    rows:[['STATUT','À venir'],['DONNÉES','OpenSky + météo'],['STACK','XGBoost · Airflow · SQL'],['ÉVALUATION','Erreur moyenne (min) sur des vols de test, comparée à la moyenne historique']],
    links:[['Étude de cas','#etude-aeroops']]},
   {code:'AEROVISION', name:'AeroVision', domain:'Vision industrielle', acc:'#FF6B4A', kind:'vision', group:'IA · AÉRO',
-   desc:"Détection et segmentation de défauts de surface sur pièces, avec score de confiance et validation par un opérateur humain.",
-   metar:'AEROVISION 04 · MVTEC AD · AUROC · À VENIR',
-   rows:[['STATUT','À venir'],['DONNÉES','MVTec AD'],['STACK','PyTorch · YOLO · OpenCV'],['ÉVALUATION','AUROC détection et segmentation sur le benchmark MVTec AD']],
-   links:[['Étude de cas','#etude-aerovision']]},
+   desc:"Inspection automatisée de pièces : identification de la pièce (CNN), détection et segmentation des défauts (PatchCore codé à la main), localisation OpenCV, confiance calibrée et file de validation opérateur.",
+   metar:'AEROVISION 04 · MVTEC AD · PATCHCORE · AUROC 0,97–0,998 · LIVRÉ',
+   rows:[['STATUT','Livré'],['DONNÉES','MVTec AD · 5 pièces (proxy aéro)'],['STACK','PyTorch · PatchCore · OpenCV · YOLOv8 · FastAPI · React · Docker'],['RÉSULTAT','AUROC image 0,966 à 0,998 · 10 défauts manqués sur 279']],
+   links:[['Démo en ligne','https://stevvvvvv.github.io/AeroVision/'],['Code GitHub','https://github.com/stevvvvvv/AeroVision']]},
   {code:'AEROSUPPLY', name:'AeroSupply', domain:'Supply chain', acc:'#A78BFA', kind:'network', group:'IA · AÉRO',
    desc:"Cartographie des dépendances fournisseurs et scoring de risque pour anticiper les ruptures qui retardent l'assemblage.",
    metar:'AEROSUPPLY 05 · GRAPHE FOURNISSEURS · RISQUE DE RUPTURE · À VENIR',
@@ -603,7 +603,7 @@ function buildVision(acc){
   heat.position.z = .2; root.add(heat); parts.push(partOf(heat,[0,0,.95],null,'SEGMENTATION', 0.001));
   const box = new THREE.Group();
   box.add(new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(.62,.36,.02)), new THREE.LineBasicMaterial({color:acc})));
-  const tg = textSprite('fissure 0.93', acc, .2); tg.position.set(-.31,.3,0); box.add(tg);
+  const tg = textSprite('anomalie · 0.99', acc, .2); tg.position.set(-.31,.3,0); box.add(tg);
   box.position.set(.58,.62,.22); root.add(box); parts.push(partOf(box,[0,0,1.7],null,'DÉTECTION'));
   const cam = new THREE.Group();
   cam.add(new THREE.Mesh(new THREE.BoxGeometry(.5,.34,.38), MAT.dark));
