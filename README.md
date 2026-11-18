@@ -1,6 +1,6 @@
 # Steven Jansen — Aerospace AI Engineer
 
-Portfolio en ligne : **https://stevvvvvv.github.io**
+Portfolio en ligne : **https://steven-jansen.github.io**
 
 Ingénieur aéronautique (IPSA), en Master Big Data, Développement & IA (IPSSI), formation théorique ATPL. Je développe des systèmes d'IA appliqués à l'aéronautique et au spatial : maintenance prédictive, documentation technique, opérations aériennes, inspection industrielle, supply chain.
 
